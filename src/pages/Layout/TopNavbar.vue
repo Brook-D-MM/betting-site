@@ -15,16 +15,6 @@
           <span class="icon-bar"></span>
         </md-button>
 
-        <div class="md-collapse">
-          <div class="md-autocomplete">
-            <md-autocomplete
-              class="search"
-              v-model="selectedEmployee"
-              :md-options="employees"
-            >
-              <label>Search...</label>
-            </md-autocomplete>
-          </div>
           <md-list>
             <md-list-item href="#/">
               <i class="material-icons">sports_baseball  </i>
@@ -35,15 +25,13 @@
               <drop-down>
                 <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
+                  <span class="notification">3</span>
                   <p class="hidden-lg hidden-md">Notifications</p>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li><a href="#">Mike John responded to your email</a></li>
                   <li><a href="#">You have 5 new tasks</a></li>
                   <li><a href="#">You're now friend with Andrew</a></li>
-                  <li><a href="#">Another Notification</a></li>
-                  <li><a href="#">Another One</a></li>
                 </ul>
               </drop-down>
             </md-list-item> -->
@@ -61,15 +49,13 @@
                       data-toggle="dropdown"
                     >
                       <md-icon>notifications</md-icon>
-                      <span class="notification">5</span>
+                      <span class="notification">3</span>
                       <p class="hidden-lg hidden-md">Notifications</p>
                     </md-button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                      <li><a href="#">Mike John responded to your email</a></li>
-                      <li><a href="#">You have 5 new tasks</a></li>
+                      <li><a href="#">We Have New Betting Suggest For Us</a></li>
+                      <li><a href="#">Your Betting List is Now Available</a></li>
                       <li><a href="#">You're now friend with Andrew</a></li>
-                      <li><a href="#">Another Notification</a></li>
-                      <li><a href="#">Another One</a></li>
                     </ul>
                   </drop-down>
                 </div>
@@ -89,25 +75,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      selectedEmployee: null,
-      employees: [
-        "Jim Halpert",
-        "Dwight Schrute",
-        "Michael Scott",
-        "Pam Beesly",
-        "Angela Martin",
-        "Kelly Kapoor",
-        "Ryan Howard",
-        "Kevin Malone"
-      ]
-    };
-  },
+ 
   methods: {
     toggleSidebar() {
       this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
-    }
+    },
   }
 };
 </script>

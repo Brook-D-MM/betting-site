@@ -1,76 +1,88 @@
 <template>
-  <div class="content">
-    <div class="md-layout">
-     
-    <md-content class="md-primary">Primary</md-content>
-    <p><h1>Vs</h1></p>
-    <md-content class="md-accent">Accent</md-content>
-    </div>
-  <div class="card-expansion">
-    <md-card>
-      <md-card-media>
-        <img src="../assets/img/premier.jpg" alt="People">
-      </md-card-media>
+  <div>
+    <div class="content" >
+      <div class="md-collapse">
+          <div class="md-autocomplete">
 
-      <md-card-header>
-        <div class="md-title">Title goes here</div>
-        <div class="md-subhead">Subtitle here</div>
-      </md-card-header>
-
-      <md-card-expand>
-        <md-card-actions md-alignment="space-between">
-          <div>
-            <md-button>Action</md-button>
-            <md-button>Action</md-button>
+            <md-autocomplete class="search" v-model="selected_league" type="text"
+              :md-options="employees">
+              <label>Search...</label>
+            </md-autocomplete>
+           
+          </div>          
+      </div>
+      <div class="md-layout">
+        <div class="md-layout md-gutter">
+          <div class="md-layout-item" v-for="(item, index) in searchLeague" :key="index" >
+            <fixture :fixture="item" />
           </div>
-
-          <md-card-expand-trigger>
-            <md-button class="md-icon-button">
-              <md-icon>keyboard_arrow_down</md-icon>
-            </md-button>
-          </md-card-expand-trigger>
-        </md-card-actions>
-
-        <md-card-expand-content>
-          <md-card-content>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
-          </md-card-content>
-        </md-card-expand-content>
-      </md-card-expand>
-    </md-card>
-    
-
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import {
-  
-} from "@/components";
+import Fixture from "../components/UiComponent/Fixture.vue";
 
 export default {
-  name: 'PaperContent',
-  name: 'CardExpansion'
-  
-   
+  name: "Dashboard",
+  components: {
+    Fixture
+  },
+ 
+  data() {
+    return {
+      fixtures: [
+        {
+          title: 'London Derby',
+          time: '3:30 AM',
+          team_A: 'chelsea',
+          team_B: 'man u',
+          suggest_team: 'chelsea',
+          picture: require('../assets/img/premier.jpg'),
+          card:'premier',
+        },
+        {
+          title: 'Laliga',
+          time: '3:30 AM',
+          team_A: 'Madrid',
+          team_B: 'Barca',
+          suggest_team: 'Madrid',
+          picture: require('../assets/img/laliga.jpg'),
+          card:'laliga',
+        },
+        {
+          title: 'Bundesliga',
+          time: '4:30 AM',
+          team_A: 'Dort',
+          team_B: 'Schalke',
+          suggest_team: 'Dort',
+          picture: require('../assets/img/Bundesliga.jpg'),
+          card: 'bundesliga',
+        },
+      ],
+      selected_league: ''
+    }
+  },
+ computed: {
+  searchLeague:function() {
+      return this.fixtures.filter(fixture =>{
+        return  fixture.card.match(this.selected_league)
+      }
+      )
+      
+    }
+ },
  
 };
 </script>
-<style lang="scss" scoped>
-  .md-content {
-    width: 200px;
-    height: 200px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .card-expansion {
-    height: 480px;
-  }
-
-  .md-card {
-    width: 300px;
-    margin: 5px;
-    display: inline-block;
-    vertical-align: top;
-  }
+<style>
+.md-content {
+  width: 200px;
+  height: 200px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

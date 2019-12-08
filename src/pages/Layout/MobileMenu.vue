@@ -9,22 +9,20 @@
     <li>
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="material-icons">sports_baseball</i>
-        <p>Dashboar</p></a
+        <p>Dashboard</p></a
       >
     </li>
     <li>
       <drop-down>
         <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
           <i class="material-icons">notifications</i>
-          <span class="notification">5</span>
+          <span class="notification">3</span>
           <p>Notifications</p>
         </a>
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#">Mike John responded to your email</a></li>
-          <li><a href="#">You have 5 new tasks</a></li>
+          <li><a href="#">We Have New Betting Suggest For Us</a></li>
+          <li><a href="#">Your Betting List is Now Available</a></li>
           <li><a href="#">You're now friend with Andrew</a></li>
-          <li><a href="#">Another Notification</a></li>
-          <li><a href="#">Another One</a></li>
         </ul>
       </drop-down>
     </li>
@@ -41,17 +39,7 @@ export default {
   data() {
     return {
       search: null,
-      selectedEmployee: null,
-      employees: [
-        "Jim Halpert",
-        "Dwight Schrute",
-        "Michael Scott",
-        "Pam Beesly",
-        "Angela Martin",
-        "Kelly Kapoor",
-        "Ryan Howard",
-        "Kevin Malone"
-      ]
+     
     };
   }
 };

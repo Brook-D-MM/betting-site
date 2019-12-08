@@ -47,11 +47,13 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Bet Tips"
+      default: "Bet Site"
     },
     backgroundImage: {
+      width: '50px',
+      height: '50px',
       type: String,
-      default: require("@/assets/img/premier1.jpg")
+      default: require("@/assets/img/th.jpg")
     },
     imgLogo: {
       type: String,
